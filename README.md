@@ -5,13 +5,8 @@ This project is a simple Pokémon browser application built using JavaScript. It
 ## 📋 Table of Contents
 - [Demo](#demo)
 - [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
 - [Technologies](#technologies)
-- [API Reference](#api-reference)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
+- [Installation](#installation)
 
 ## 🖥️ Demo
 
@@ -24,6 +19,12 @@ You can view a live demo of the project here: [POKIE-MON](https://yashsainani.gi
 - **Filter by Type**: Users can filter Pokémon based on their type (e.g., fire, water).
 - **View Pokémon Details**: Click on any Pokémon card to view additional details, including base experience, height, and weight.
 - **Close Button**: Users can close the detailed view using an "X" button.
+
+## ⚙️ technologies
+
+- **HTML**
+- **CSS**
+- **JavaScript(Vanilla JS)**
 
 ## 🛠️ Installation
 
