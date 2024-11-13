@@ -8,7 +8,7 @@ let filtered = [];
 
 async function showAll() {
     for (let i = 1; i < 151; i ++) {
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`);
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
         const pokeData = await res.json();
         allPoke.push(pokeData);
     }
