@@ -5,6 +5,24 @@ const search = document.getElementById('search');
 const reset = document.getElementById('reset');
 let allPoke = [];
 let filtered = [];
+const bgColor = {
+    grass: "#02B816ef",
+    fire: "#DC3307ef",
+    water: "#4143BDef",
+    bug: "#61A513ef",
+    normal: "#D994C2ef",
+    poison: "#84066Def",
+    electric: "#e7c325ef",
+    ground: "#DA8507ef",
+    fairy: "#E164CAef",
+    fighting: "#A22813ef",
+    psychic: "#C03897ef",
+    ice: "#5EE7D0ef",
+    rock: "#BEB1B6ef",
+    ghost: "#9498ABef",
+    dragon: "#AF120Bef",
+    dark: "#31372Bef"
+};
 
 async function showAll() {
     for (let i = 1; i < 151; i ++) {
@@ -21,8 +39,11 @@ window.addEventListener('load', showAll);
 function showFiltered(arr) {
     pokeSection.innerHTML = '';
     arr.forEach(obj => {
+        let extraDiv = document.createElement('div');
+        extraDiv.classList.add('extra-div');
         let pDiv = document.createElement('div');
-        pDiv.style.position = 'relative';
+        pDiv.classList.add('poke-card');
+        pDiv.style.backgroundColor = bgColor[obj.types[0].type.name];
         let fDiv = `
             <div class="front-part">
                 <h3 id="id">#${obj.id}</h3>
@@ -43,7 +64,7 @@ function showFiltered(arr) {
         pDiv.innerHTML += bDiv;
         pDiv.addEventListener('click', () => {
             let infoDiv = `
-                <div class="info-div">
+                <div class="info-div" style="background-color: ${bgColor[obj.types[0].type.name]}">
                     <h3 id="id">#${obj.id}</h3>
                     <img src="${obj.sprites.front_shiny}" alt="${obj.name}"></img>
                     <div class="pokie-info">
@@ -57,19 +78,22 @@ function showFiltered(arr) {
             let div = document.createElement('div');
             div.innerHTML = infoDiv;
             document.body.append(div);
+            document.body.classList.add('active');
         });
-        pokeSection.append(pDiv);
+        extraDiv.append(pDiv);
+        pokeSection.append(extraDiv);
     });
 }
 
 document.addEventListener('click', (eve) => {
     if (eve.target.classList.contains('close')) {
         eve.target.closest('.info-div').remove();
+        document.body.classList.remove('active');
     }
 });
 
 search.addEventListener('click', () => {
-    if (type.value === 'Select a type') {
+    if (type.value === 'select') {
         alert("Choose some type");
         return;
     }

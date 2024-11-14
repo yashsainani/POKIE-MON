@@ -1,0 +1,253 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 1;
+    background: url('https://aakashr11111001111.github.io/Project-Pokemon/Assets/bg-img.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    box-shadow: inset 0 0 20rem 5rem rgba(0, 0, 0, 0.8);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+body.active:after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    filter: blur(1000px);
+    z-index: 3;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 4rem;
+    gap: 2rem;
+    font-size: 2rem;
+    color: gold;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2rem;
+    width: 100%;
+}
+
+nav input, select {
+    width: 30%;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    border-radius: 2rem;
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+    background-color: blueviolet;
+    color: #fff;
+    box-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
+}
+
+nav input::placeholder {
+    color: #fff;
+}
+
+nav button {
+    font-size: 1.6rem;
+    width: 15%;
+    cursor: pointer;
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+    border: none;
+    outline: none;
+    background-color: blueviolet;
+    color: #fff;
+    box-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
+    transition: all 0.5s;
+}
+
+nav button:hover {
+    transform: translateY(-4px);
+}
+
+@media screen and (max-width: 640px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    nav input, select {
+        width: 100%;
+    }
+
+    nav button {
+        width: 100%;
+    }
+}
+
+.poke-section {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 2rem 8rem;
+}
+
+
+.extra-div {
+    width: 18%;
+}
+
+@media screen and (max-width: 800px) {
+    .extra-div {
+        width: 30%;
+    }
+    
+    .poke-section {
+        padding: 2rem;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .extra-div {
+        width: 46%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .extra-div {
+        width: 100%;
+    }
+
+    header {
+        font-size: 1rem;
+    }
+}
+
+.poke-card {
+    position: relative;
+    width: 100%;
+    border-radius: 2rem;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease-in-out;
+}
+
+.extra-div:hover .poke-card {
+    transform: rotateY(180deg) scale(1.1);
+}
+
+.front-part, .back-part {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 3rem;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    font-size: 2rem;
+    font-weight: bolder;
+    transform: rotateY(0deg);
+    z-index: 2;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.back-part {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden;
+    transform: rotateY(180deg);
+    transition: all 0.4s;
+}
+
+.front-part img, .back-part img, .info-div img {
+    width: 100%;
+    min-width: 5rem;
+}
+
+.info-div img {
+    max-width: 20rem;
+}
+
+.info-div {
+    width: 100%;
+    max-width: 50rem;
+    font-size: 2rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    padding: 4rem;
+    border-radius: 4rem;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.pokie-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.close {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: #fff;
+    padding: 5px 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.close:hover {
+    background-color: rgb(255, 38, 38);
+}
